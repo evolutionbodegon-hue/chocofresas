@@ -8,7 +8,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Bodegon Evolution</title>
+  <title>FresasChoco</title>
   <style>
   :root {
     --prim: #0b5cad;
@@ -453,8 +453,8 @@
   <div id="pantalla-login" class="p-login" hidden>
     <div class="login-card">
       <div class="logo">🏪</div>
-      <h1>Bodegon Evolution</h1>
-      <p class="sub">Ventas · Inventario · Control · <span class="ver-app">v40</span></p>
+      <h1>FresasChoco</h1>
+      <p class="sub">Ventas · Inventario · Control · <span class="ver-app">V1.0</span></p>
       <input id="in-usr" type="text" placeholder="Usuario" autocomplete="username" autocapitalize="none" spellcheck="false">
       <input id="in-pwd" type="password" placeholder="Contraseña" autocomplete="current-password">
       <button id="btn-login" class="btn btn-primario btn-ancho">Entrar</button>
@@ -481,7 +481,7 @@
       <div class="gaveta-cab">
         <span class="logo-mini">🏪</span>
         <div class="gaveta-tit">
-          <strong>Bodegon Evolution</strong>
+          <strong>FresasChoco</strong>
           <div class="gaveta-usuario" id="gaveta-usuario"></div>
         </div>
         <button class="btn-icono gaveta-x" onclick="cerrarGaveta()" title="Cerrar" aria-label="Cerrar menú">✕</button>
@@ -489,7 +489,7 @@
       <nav id="nav" class="gaveta-nav"></nav>
       <div class="gaveta-pie">
         <button class="btn btn-suave btn-ancho" id="btn-salir">⎋ Cerrar sesión</button>
-        <div class="gaveta-vers">Bodegon Evolution · <span class="ver-app">v40</span></div>
+        <div class="gaveta-vers">FresasChoco · <span class="ver-app">V1.0</span></div>
       </div>
     </aside>
 
@@ -1527,7 +1527,7 @@ function tipoGasto(t) {
 }
 function tituloDe(p) {
   var f = PAGINAS.find(function (x) { return x.id === p; });
-  return f ? f.etq : 'Bodegon Evolution';
+  return f ? f.etq : 'FresasChoco';
 }
 
 function pintarNav() {
@@ -1648,8 +1648,8 @@ async function iniciarApp() {
   // Comprobación de versión: el servidor debe coincidir con esta página.
   API.infoServidor().then(function (sv) {
     try {
-      if (sv && sv.version && sv.version !== 'v40' && window.__avisar) {
-        window.__avisar('La página es v40, pero el servidor está en la versión ' + sv.version + '. Cierra esta pestaña y abre el enlace oficial (debe decir v40).', true);
+      if (sv && sv.version && sv.version !== 'V1.0' && window.__avisar) {
+        window.__avisar('La página es V1.0, pero el servidor está en la versión ' + sv.version + '. Cierra esta pestaña y abre el enlace oficial (debe decir V1.0).', true);
       }
     } catch (e) {}
   }).catch(function () {});
@@ -2293,9 +2293,9 @@ function formularioProducto(prod) {
           var tipo = r === null ? 'null' : r === undefined ? 'undefined' : typeof r;
           var extra = DEMO ? ' La app está en MODO DEMO (sin servidor).' : '';
           API.infoServidor().then(function (sv) {
-            window.__avisar('El guardado llegó vacío a la app (respuesta: ' + tipo + ').' + extra + ' El servidor está en la versión ' + (sv && sv.version ? sv.version : '?') + '. Cierra esta pestaña y abre el enlace oficial (debe decir v40 en la pantalla de entrada).');
+            window.__avisar('El guardado llegó vacío a la app (respuesta: ' + tipo + ').' + extra + ' El servidor está en la versión ' + (sv && sv.version ? sv.version : '?') + '. Cierra esta pestaña y abre el enlace oficial (debe decir V1.0 en la pantalla de entrada).');
           }).catch(function () {
-            window.__avisar('El guardado llegó vacío a la app (respuesta: ' + tipo + ').' + extra + ' No se pudo consultar el servidor — parece que estás sin conexión o con una página vieja. Recarga con el enlace oficial (debe decir v40).');
+            window.__avisar('El guardado llegó vacío a la app (respuesta: ' + tipo + ').' + extra + ' No se pudo consultar el servidor — parece que estás sin conexión o con una página vieja. Recarga con el enlace oficial (debe decir V1.0).');
           });
         })();
       }
